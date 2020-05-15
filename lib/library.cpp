@@ -9,7 +9,11 @@
 #   include<windows.h>
 #endif
 
-
+#include <iostream>
+#include <vector>
+#include <list>
+#include <cstring>
+#ifdef __linux__
 namespace constants {
     const int KEY_ID_SEMAPHORE = 234;
     const int KEY_ID_SH_MEMORY = 2345;
@@ -20,10 +24,6 @@ namespace constants {
 }
 
 
-#include <iostream>
-#include <vector>
-#include <list>
-#include <cstring>
 typedef struct argReaderThread {
     std::list<std::string> *sourceFiles;
     int shMemoryId;
@@ -278,6 +278,8 @@ extern "C" void concatFiles(std::list<std::string> &sourceFiles, std::string &ou
     shmctl(shMemoryId, IPC_RMID, &shMemoryStruct);
 }
 #endif
+#endif
+
 
 namespace aio {
     void
