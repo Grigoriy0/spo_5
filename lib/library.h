@@ -14,15 +14,11 @@ namespace aio {
 
 #ifndef __linux__
     DWORD WINAPI reader_thread(LPVOID ptr);
-#else
-    void *reader_thread(void *ptr)
 #endif
 
 
 #ifndef __linux__
     DWORD WINAPI writer_thread(LPVOID ptr);
-#else
-    void *reader_thread(void *ptr)
 #endif
 
 
